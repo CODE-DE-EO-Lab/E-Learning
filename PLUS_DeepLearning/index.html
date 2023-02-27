@@ -1,0 +1,1294 @@
+
+
+<!DOCTYPE html>
+<!-- saved from url=(0057)https://eo4geocourses.github.io/PLUS_OBIA-Introduction/#/ -->
+<html prefix="eo4geo: http://bok.eo4geo.eu/" lang="en">
+
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
+
+	<title>EOlab Deep learning </title>
+	<meta property="dc:title" content="EOlab Deep learning">
+	<meta property="dc:creator" content="Vanessa Streifeneder, Stefan Lang & Florian Albrecht, University of Salzburg, SpaSe">
+	<meta property="dc:publisher" content="University of Salzburg">
+	<meta property="dc:subject" content="Deep learning for EO data processing on the EO Cloud with TensorFlow">
+	
+	<!-- Metadata need to be updated -->
+
+	<meta property="dc:abstract"
+		content="">
+
+	<meta property="dc:tableOfContents" content="(1) Preface; (2) Introduction to Deep Learning (DL) for Earth observation (EO); (3) The Convolutional Neural Network architecture; (4) Application example with TensorFlow; (5) Summary">
+	<meta property="dc:description"
+		content="">
+	<meta property="dc:contributor" content="Vanessa Streifeneder,Florian Albrecht,Stefan Lang">
+	<meta property="dc:created" content="">
+	<meta property="dc:type" content="teaching material">
+	<meta property="dc:format" content="html">
+	<meta property="dc:language" content="EN">
+	<meta property="dc:SizeOrDuration" content="">
+	<meta property="dc:audience" content="">
+	<meta property="dc:educationLevel" content="">
+	<meta property="dc:source" content="">
+	<meta property="dc:rightsHolder" content="">
+	<meta property="dc:license" content="https://creativecommons.org/licenses/by-sa/4.0/deed.en">
+
+
+	<link rel="stylesheet" href="./css/reveal.css">
+	
+	<link rel="stylesheet" href="./css/style.css"> <!--Play/Pause- Button-->
+	<link rel="stylesheet" href="./css/img_animation.css">
+	<link rel="stylesheet" href="./css/redBox.css"> <!--RedBox Chapter: 1-->
+	<link rel="stylesheet" href="./css/greyBox.css"> <!--GreyBox Chapter: 1-->
+	<link rel="stylesheet" href="./css/bubble.css"> <!--Speech-Bubble-->
+	<link rel="stylesheet" href="./css/dot.css"> <!--Dot-->
+	<!-- CHOOSE BETWEEN 2 EO4GEO TEMPLATE THEMES:-->
+	<link rel="stylesheet" href="./css/eo4geo.css" id="theme"> <!-- white background design -->
+	<link rel="stylesheet" href="./css/theme/simplemenu.css">
+	<!--link rel="stylesheet" href="internal_restricted/v1.0/css/theme/eo4geo_grey.css" id="theme"-->
+	<!-- anthrazit background design -->
+	<!-- EO4GEO FONT ROBOTO SLAB -->
+	<link href="https://fonts.googleapis.com/css?family=Roboto Slab" rel="stylesheet">
+	<link rel="stylesheet" href="./partnerLogo.css" id="theme">
+	<link rel="stylesheet" href="./EOLabLogo.css" id="theme">
+
+	<!--<base target="_blank">-->
+	<base href="." target="_blank"> <!-- All links in the presentation are opened in a seperate tab"-->
+	<script type="text/javascript" src="./plugin/notes/notes.js"></script>
+	<script type="text/javascript" src="./plugin/highlight/highlight.js"></script>
+	<script type="text/javascript" src="./plugin/readtext.js"></script>
+	<!--Adapt this accordingly!!!!-->
+	<script type="text/javascript" src="./plugin/readfile.js"></script>
+	<script type="text/javascript" src="./js/reveal.js"></script>
+	
+	<script type="text/javascript" src="./plugin/notes-server/client.js"></script>
+
+	<style type="text/css">
+		.hljs-ln {
+			border-collapse: collapse
+		}
+
+		.hljs-ln td {
+			padding: 0
+		}
+
+		.hljs-ln-n:before {
+			content: attr(data-line-number)
+		}
+	</style>
+</head>
+
+<body >
+	<div class="reveal">
+
+	<div class="reveal slide center has-vertical-slides has-horizontal-slides ready" role="application"
+		data-transition-speed="default" data-background-transition="fade" style="cursor: pointer;">
+
+		<!-- FORMATTING FOR HEADER -->
+
+		<div class="EOlabLogo" style="width: 11%;height : auto"></div> 
+
+		<!--<div class="partnerlogo" style="width: 15%;height : 11%"></div>-->
+		<!--<div class="presentation_title" style=" text-align: center ;position:static; top:0%" ><small>Object-based Image Analysis </small></div>-->
+		<!--The title of the presentation appears on each slide
+		
+		//style=";"
+	-->
+
+
+		<div class="slides" >
+
+			<!-- AUTHORS: DEFINE CONTENT ON YOUR FIRST SLIDE -->
+			<section class="present" style=" display: block;" data-index-h="0" >
+				<div>
+					<button onclick="read.readfile(text.f0_0)">Start</button>
+									
+				</div>
+
+					
+			</section>
+<!--DL Course with EO-Lab-->
+
+		<section section id="Chapter 1.0" data-background-image="background.jgp" data-background-opacity=1 data-background-size="75%" data-background-repeat="no-repeat">
+			
+		
+				<h1 >Deep Learning for EO data processing on the EO Cloud with TensorFlow </h1>
+				<div style="color:#ebf4fe">
+				<small>Vanessa Streifeneder <sub>1</sub>, Florian Albrecht <sub>2</sub>, Stefan Lang <sub>1</sub></small>
+				<p></p>
+				<p>
+					<small> <sub>1</sub> Dept. of Geoinformatics | University of Salzburg</small>			
+				
+					<small> <sub>2</sub> Spatial Services Ltd.</small>			
+				</p>
+				</div>
+
+				<aside class="notes">
+					
+					<script>
+						document.write(String(text.f1_0));
+					</script>					
+					
+				</aside>
+		</section>
+		<!--Content-->
+		<section id="Chapter 2.0">
+			<h2> Content</h2>
+			
+			<div  >
+				<ol >
+				<div class="fragment" id="f2_0_f_1">
+					<li>
+						Preface
+					</li>
+				<div class="fragment" id="f2_0_f_2">
+					<li > 
+						Introduction to deep learning (DL) for Earth observation (EO)
+					</li>	
+				</div>	
+				<div class="fragment" id="f2_0_f_3">								
+					<li >
+						Convolutional neural networks (CNN)
+					</li>
+				</div>
+				<div class="fragment" id="f2_0_f_4">	
+					<li >
+						Application example with TensorFlow
+					</li>
+				</div>
+				<div class="fragment" id="f2_0_f_5">	
+					<li > 
+						Summary
+					</li>
+				</div>					
+				</ol>		
+							
+			</div>
+			<aside class="notes">
+					
+				<script>
+					document.write(String(text.f2_0, text.f2_0_f_1, text.f2_0_f_2, text.f2_0_f_3, text.f2_0_f_4, text.f2_0_f_5));
+				</script>					
+				
+			</aside>
+		
+		</section>
+
+		<!-- Preface-->
+		<section id="Chapter 3.0">
+			<section data-background-image="./Images/Satellitenaufnahme_total.jpg" data-background-opacity=1 data-background-size="100" data-background-repeat="no-repeat" >
+				<p style="position: absolute; bottom:-100%; font-size:40%; color:white"> Sentinel-2,  Salzburg, Austria, on 18 May 2022 </p>
+				
+					<h2 style="background-color: white; margin: 5%; ">Preface</h2>
+					
+			
+				<aside class="notes">
+					<script>
+						document.write(String(text.f3_0));
+					</script>	
+				</aside>
+		</section>
+
+		<!--Set-Up-->
+
+		<section id="Chapter 3.1">
+			<h2>The EO-Lab context</h2>
+			<ul style="font-size:60% ; width:80%_; text-align: left;">
+				<li>  The course material has been optimized for the following setup:</li>
+				<ul>
+					<li>
+						The course participants have their own <b>cloud resources on EO-Lab</b>.
+					</li>
+					<li>
+						The course participants have set up a <b> virtual machine (VM) with GPU support</b>  on the platform for access via remote control.
+					</li>
+					<li>
+						The VM has a <b>programming environment installed </b> that enables scripting and running of code with <b>Jupyter notebooks</b>.
+					</li>
+				</ul>
+				
+				<li>For setting up your EO-Lab resources accordingly, information is available here:</li>
+				<ul>
+					<li>
+						FAQs in the EO-Lab help, accessible at <a href="https://eo-lab.org/de/help/" > EO-Lab Help</a>
+					</li>
+					<li>
+						The EO-Lab documentation, accessible at <a href=" https://knowledgebase.eo-lab.org"> EO-Lab Knowledge Base</a>
+					</li>
+				</ul>
+			</ul>
+			<aside class="notes">
+				<script>
+					document.write(String(text.f3_1));
+				</script>	
+			</aside>
+		</section>
+
+		<!-- Work Environment-->
+		<section id="Chapter 3.2">
+			<h2> How to arrange your work environment</h2>
+			<ul style="text-align: left; font-size:70%">
+				<li>This course focuses on scripting for Deep Learning.</li>
+				<li>Open the course material and your VM with the programming environment in two separate windows next to each other.</li>
+			</ul>
+			<figure>
+				<img src="./Images/Slide3_figure_DL_course_setup.png" style=" background: none; border: none; box-shadow: none; width:140%">
+			</figure>
+			<aside class="notes">
+				<script>
+					document.write(String(text.f3_2));
+				</script>	
+			</aside>
+		</section>
+
+		<!-- Chapter End-->
+		<section id="Chapter 3.3" data-background-image="./Images/Satellitenaufnahme_total.jpg" data-background-opacity=1 data-background-size="100" data-background-repeat="no-repeat" ></section>
+		</section>
+
+		<!-- Chapter 1: Introduction-->
+		<section id="Chapter 4.0" >
+			<section data-background-image="./Images/Satellitenaufnahme_total.jpg" data-background-opacity=1 data-background-size="100" data-background-repeat="no-repeat" >
+					<p style="position: absolute; bottom:-100%; font-size:40%; color:white"> Sentinel-2,  Salzburg, Austria, on 18 May 2022 </p>
+					
+						<h2 style="background-color: white; margin: 5%; "> Introduction to AI for EO</h2>
+						
+					
+					<aside class="notes">
+						<script>
+							document.write(String(text.f4_0));
+						</script>	
+					</aside>
+			</section>
+			
+
+
+		<!-- DL for classification of EO data--> 
+
+			<section id="Chapter 4.1">
+				<h2 >Deep learning (DL) for classification of Earth observation (EO) data</h2>
+				<div style="font-size: 50%; margin-right: 40%;">
+					<ul>
+					
+						<li>
+							Objective
+						</li>
+						<ul>
+							<li>
+								Classifying land cover in satellite imagery using CNNs
+							</li>
+						</ul>						
+						<li>
+							The DL approach applies
+						</li>
+						<ul>
+							<div class="fragment" id="f4_1_f_1">
+							<li>
+								Supervised learning - requires training data as input
+							</li>
+						</div>
+						<div class="fragment" id="f4_1_f_2">
+							<li>
+								Machine learning - after training of algorithm follows prediction by algorithm
+							</li>
+						</div>
+						<div class="fragment" id="f4_1_f_3">
+							<li>
+								Type of classification task for land cover mapping - Semantic segmentation
+							</li>
+						</div>
+						</ul>
+
+					</ul>
+				</div>
+				<p style="position: absolute; right: 0%; top:45%; width:50%; font-size: 50%;"> Supervised learning</p>
+				<figure style="position: absolute; right: -10%; top:43%; width:45%">
+					<img src="./Images/1_1_Supervised_learning.png" style=" background: none; border: none; box-shadow: none">
+				</figure>
+				<p style="position: absolute; right: 0%; top:75%; width:50%; font-size: 50%;"> Supervised machine learning</p>
+				<figure style="position: absolute; right: 0%; top:75%; width:40%">
+					<img src="./Images/1_2_supervised_machine_learning.png" style=" background: none; border: none; box-shadow: none">
+				</figure>
+				<div style="position: absolute; right: -20%; bottom:-15%; width:60%; font-size: small;"><a href="http://www.eo4geo.eu/training/the-rise-of-artificial-intelligence-for-earth-observation/">Source: The rise of artificial intelligence for earth observation</a> </div>
+				
+				<aside class="notes">
+					
+					<script>
+						document.write(String(text.f4_1, text.f4_1_f_1, text.f4_1_f_2, text.f4_1_f_3));
+					</script>					
+				
+				</aside>
+
+			</section>
+
+	
+		<!--Classification tasks for DL-->
+			<section id="Chapter 4.2">
+				<h2 >Classification tasks for Deep Learning</h2>
+				<div style="display:inline;">
+			
+					<div class="fragment semi-fade-out" id="f4_2_f_1" data-fragment-index="1" >
+						<div class="redBox"> Image classification/ recognition</div>				
+						<div class="redBox" > Object detection</div>				
+					</div>
+					<div class="fragment grow" id="f4_2_f_2" data-fragment-index="2" >
+						<div class="redBox"   >Semantic segmentation </div>	
+					</div>		
+					<div class="fragment semi-fade-out" id="f4_2_f_1" data-fragment-index="1" >
+						<div class="redBox" > Instance segmentation</div>				
+					</div>
+					<div style="display: inline; float:left">
+						<div class="fragment semi-fade-out" id="f4_2_f_1" data-fragment-index="1" >
+						<div class="bubble">images are recognized according to scene content</div>
+						<div class="bubble" >objects located in image matrix</div>				
+						<div class="bubble" >image is segmented by assigning class probabilities to each pixel</div>
+						<div class="bubble" >individual objects delineated</div>
+						</div>
+					</div>
+		
+				</div>
+				<figure>
+					<img src="./Images/2_1_image_recognition.png" style=" background: none; border: none; box-shadow: none">
+				</figure>
+				<div>
+					<p style="text-align: left; font-size: 40%; position: absolute; bottom:5%"> Examples of image recognition tasks (Hoeser and Kuenzer, 2010)</p>
+				</div>					
+	
+				<aside class="notes">
+					
+					<script>
+						document.write(String(text.f4_2, text.f4_2_f_1, text.f4_2_f_2));
+					</script>					
+			
+				</aside>
+
+			</section>
+
+		<!--DL workflow-->
+		<section id="Chapter 4.3">
+			<h2 >The Deep Learning workflow </h2>
+			<div style="display: inline">	
+				<span class="dot" style="float:left"></span>
+				<div style="float:left; ">&#x2192;</div>
+				<div class="greyBox">Prepare input data</div>	
+				<div style="float:left; ">&#x2192;</div>
+				<div class="fragment fade-right" id="f4_3_f_1">		
+				<div class="greyBox" >Prepare DL model</div>
+				<div style="float:left; ">&#x2192;</div>
+			</div>
+			<div class="fragment fade-right" id="f4_3_f_2">
+				<div class="greyBox" >Run the model</div>
+				<div style="float:left; ">&#x2192;</div>
+			</div>	
+			<div class="fragment fade-right" id="f4_3_f_3">	
+				<div class="greyBox">Evaluation</div>
+				<div style="float:left; ">&#x2192;</div>
+			</div>
+			<div class="fragment fade-right" id="f4_3_f_4">
+				<div class="greyBox">Further use</div>
+				<div style="float:left; ">&#x2192;</div>
+				<span class="dot" style="float:left; background-color:red"></span>
+			</div>
+			</div>
+			<aside class="notes">
+					
+				<script>
+					document.write(String(text.f4_3, text.f4_3_f_1, text.f4_3_f_2, text.f4_3_f_3, text.f4_3_f_4));
+				</script>					
+		
+			</aside>			
+		</section>
+
+		<!--DL workflow: Input Data-->
+		<section id="Chapter 4.4">
+			<h2 >The Deep Learning workflow </h2>
+			<figure>
+				<img src="./Images/DeepLearningWorkflow.png" style=" background: none; border: none; box-shadow: none;">
+			</figure>
+	
+		<aside class="notes">
+					
+			<script>
+				document.write(String(text.f4_4));
+			</script>					
+	
+		</aside>
+
+		</section>
+
+		<!--Section End: Quiz-->
+		<section id= "Chapter 4.5" data-background-image="./Images/Satellitenaufnahme_total.jpg" data-background-opacity=1 data-background-size="100" data-background-repeat="no-repeat" >
+					<p style="position: absolute; bottom:-100%; font-size:40%; color:white"> Sentinel-2,  Salzburg, Austria, on 18 May 2022 </p>
+					
+					<h2 style="background-color: white; margin: 5%; "> Go to Quiz #1 </h2>
+						
+				
+					
+			</section>
+
+		</section>
+
+		<!-- Chapter 2: CNN-->
+		<section id="Chapter 5.0" >
+			<section data-background-image="./Images/Satellitenaufnahme_total.jpg" data-background-opacity=1 data-background-size="100" data-background-repeat="no-repeat" >
+				
+					<h2 style="color:rgb(0, 119, 255); background-color: white; margin: 5%; "> Convolutional Neural Network architecture </h2>
+			
+				<aside class="notes">
+					<script>
+						document.write(String(text.f5_0));
+					</script>	
+				</aside>
+			</section>
+
+			<!-- Architecture-->
+			<section id="Chapter 5.1">
+				<h2> The CNN architecture</h2>
+				<div style="width: 50%; font-size: 50%; text-align: left;">
+					<ul>
+						<li>Constructing feature maps </li>
+						<ul>
+							<div class="fragment" id="f5_1_f_1">
+							<li>
+								Convolution (with filters & kernels) and pooling are applied to the input image to create the feature maps of a multi-layer CNN
+							</li>
+						</div>
+						</ul>
+						<div class="fragment" id="f5_1_f_2">
+						<li>Fully connected convolutional network (FCN) </li>
+						<ul>
+							<li>All nodes of the lower layer are connected to all nodes of the upper layer</li>
+							<li>'Deep' networks (that stack multiple layers and FCNs) are suitable to learn complex functions such as the modelling of semantic segmentation.</li>
+						</ul>
+					</div>
+					</ul>
+				
+				</div>
+				<figure style="position: absolute; right: 0%; top:12%; width:40%; ">
+					<p style="font-size: 50%; text-align:left"><i>Stepwise reduction of the size of feature maps in a CNN </i></p>
+					<img src="./Images/The-LeNet-5-Architecture-a-convolutional-neural-network.png" style="background: none; border: none; box-shadow: none; width:220%">
+					<p style="font-size: 50%; text-align:left"><i>Multi-layer deep fully connected network</i></p>
+					<img src="./Images/FCN_Ramsundar_Zadeh.png" style="background: none; border: none; box-shadow: none; width:50%">
+				</figure>
+
+				<aside class="notes">
+					<script>
+						document.write(String(text.f5_1, text.f5_1_f_1, text.f5_1_f_2));
+					</script>	
+				</aside>
+			</section>
+
+			<!-- U-Net-->
+			<section id="Chapter 5.2">
+				<h2> U-Net model for semantic segmentation</h2>
+				<div  style="width: 50%; font-size: 50%; text-align: left;">
+					<ul>
+						<li> The U-Net model in the figure to the right combines an encoder with a decoder. </li>
+						<div class="fragment" id="f5_2_f_1">
+						<li>
+							<b>Encoder - Contracting analysis path (left)</b>
+						</li>
+						<ul>
+							<li>
+								Encodes feature representation at multiple scales (i.e. identifies the semantic classes that are present in the input image)
+							</li>
+
+						</ul>
+					</div>
+					<div class="fragment" id="f5_2_f_2">
+						<li>
+							<b>Decoder - Expansive synthesis path (right) </b>
+						</li>
+						<ul>
+							<li>
+								Projects the feature representation learned by the encoder to the original pixel space
+							</li>
+							<li>
+								Ends with assigning a semantic class to each pixel
+							</li>
+						</ul>
+					</div>
+					</ul>
+				
+				</div>
+				<figure style="position: absolute; right: -5%; top:25%; width:50%; ">
+					<p style="font-size: 50%; text-align:center"><i>U-Net model architecture</i></p>
+					<img src="./Images/u-net-architecture.png" style="background: none; border: none; box-shadow: none; width:220%">
+				
+				</figure>
+				<aside class="notes">
+					<script>
+						document.write(String(text.f5_2, text.f5_2_f_1, text.f5_2_f_2));
+					</script>	
+				</aside>
+			</section>
+
+					
+			<!--Section End: Quiz-->
+			<section id= "Chapter 5.3" data-background-image="./Images/Satellitenaufnahme_total.jpg" data-background-opacity=1 data-background-size="100" data-background-repeat="no-repeat" >
+				<p style="position: absolute; bottom:-100%; font-size:40%; color:white"> Sentinel-2,  Salzburg, Austria, on 18 May 2022 </p>
+			
+					<h2 style="background-color: white; margin: 5%; "> Go to Quiz #2</h2>
+				
+		
+				<aside class="notes">
+					<script>
+						document.write(String(text.f3_0));
+					</script>	
+				</aside>
+			</section>
+
+		</section>
+			
+		</section>	
+		<!-- Chapter 3: Application- TensorFlow-->
+
+		<section id="Chapter 6.0" >
+				<section data-background-image="./Images/Satellitenaufnahme_total.jpg" data-background-opacity=1 data-background-size="100" data-background-repeat="no-repeat" >
+					
+						<h2 style="color:rgb(0, 119, 255); background-color: white; margin: 5%; ">Application example with TensorFlow	</h2>
+					
+					<aside class="notes">
+						<script>
+							document.write(String(text.f6_0));
+						</script>	
+					</aside>
+				</section>
+
+			<!-- Application context-->
+			<section id="Chapter 6.1">
+				<h2> Application context</h2>
+				<div style="width: 40%; font-size: 60%; text-align: left;">
+					<ul>
+						<li>Opportunity on EO-Lab</li>
+						<ul style="font-size: 80%">
+							<li>
+								Sentinel-2 archive available
+							</li>
+							<li>
+								ESA World Cover available
+							</li>
+						</ul>
+						<li>
+							Test case for this course
+						</li>
+						<ul style="font-size: 80%">
+							<li>
+								Use ESA World Cover to train a DL model
+							</li>
+							<li>
+								Apply trained model to Sentinel-2 image for each year from 2015 until 2022
+							</li>
+							<li>
+								Analyse time series of derived land cover maps
+							</li>
+
+						</ul>
+					</ul>
+				</div>
+
+				<figure style="position: absolute; right: 0%; top:15%; width:50%  ">
+					<p style="font-size: 50%; text-align:center"><i>Comparing Sentinel-2 and ESA WorldCover</i></p>
+					<img src="./Images/EO_Browser_EO_Lab.png" style="background: none; border: none; box-shadow: none; ">
+				</figure>
+				<aside class="notes">
+					<script>
+						document.write(String(text.f6_1));
+					</script>	
+				</aside>
+			</section>
+
+			<!--Prepare VM-->
+			<section id="Chapter 6.2">
+				<h2>Prepare data on Virtual Machine on EO-Lab</h2>
+				<ul style="font-size: 60%; text-align:left">
+					<li>
+						Use <b>EO-Browser</b> to identify EO datasets 
+					</li>
+					<ul>
+						<li>
+							Go to an area of interest (AOI), e.g. east of Berlin
+						</li>
+						<li>
+							Identify cloudfree Sentinel-2 images representative of each year and copy dataset paths
+						</li>
+					</ul>
+					<li>
+						Go to your <b>VM on EO-Lab</b> to search files in repositories
+					</li>
+					<ul>
+						<li>
+							The paths to the repositories can be looked up in the <a href="https://eo-lab.org/en/portfolio/"> EO-Lab Portfolio</a>
+						</li>
+						<li>
+							Locate the S-2 image files in the path <i>/eodata/Sentinel-2/MSI/L1C</i>
+						</li>
+						<li>
+							Locate the ESA WorldCover dataset in the path <i>/codede/auxdata/esa-worldcover-2020</i> 
+						</li>
+					</ul>
+					<li>
+						Store <b>local copies</b> for image subsets
+					</li>
+					<ul>
+						<li>
+							Use AOI to extract subsets from S-2 images and from ESA World Cover
+						</li>
+						<li>
+							Store the datasets on your VM for further processing
+						</li>
+					</ul>
+				</ul>
+				<aside class="notes">
+					<script>
+						document.write(String(text.f6_2));
+					</script>	
+				</aside>
+			</section>
+		
+			<!--Necessary Libaries-->
+			<section id="Chapter 6.3">
+				<h2>Program setups</h2>
+				<figure>
+					<img src="./Images/ImportingLibaries.png"  style=" background: none; border: none; box-shadow: none; width:75%">
+				</figure>
+				<aside class="notes">
+					<script>
+						document.write(String(text.f6_3));
+					</script>	
+				</aside>
+			</section>
+
+			<!--Preparing Sample Data-1-->
+			<section id="Chapter 6.4">
+				<h2> Preparing Sample Data</h2>
+				<div class="fragment fade-out" id="f6_4_f_1">
+					<figure>
+						<img src="./Images/ImportingTraining.png" style=" background: none; border: none; box-shadow: none; width:60%; ">
+					</figure>
+				</div>
+				<div class="fragment fade-in-then-out" id="f6_4_f_2">
+					<figure>
+						<img src="./Images/ImportingTraining_2.png" style=" background: none; border: none; box-shadow: none; width:60%; position:absolute; top:15%; left:15%">
+					</figure>
+				</div>
+				<div class="fragment fade-in-then-out" id="f6_4_f_3">
+					<figure>
+						<img src="./Images/ImportingTraining_3.png" style=" background: none; border: none; box-shadow: none; width:60%; position:absolute; top:15%; left:15%">
+					</figure>
+				</div>
+				<div class="fragment fade-in" id="f6_4_f_4">
+					<figure>
+						<img src="./Images/ImportingLabels.png" style=" background: none; border: none; box-shadow: none; width:70%; position:absolute; top:15%; left:15%">
+					</figure>
+				</div>
+				<div class="fragment fade-in" id="f6_4_f_5">
+					<figure>
+						<img src="./Images/ImportingLabels_2.png" style=" background: none; border: none; box-shadow: none; width:70%; position:absolute; top:15%; left:15%">
+					</figure>
+				</div>
+				<aside class="notes">
+					<script>
+						document.write(String(text.f6_4. text.f6_4_f_1,text.f6_4_f_2, text.f6_4_f_3, text.f6_4_f_4, text.f6_4_f_5));
+					</script>	
+				</aside>
+
+
+			</section>
+			<!--Preparing Sample Data-2-->
+			<section id="Chapter 6.5">
+				<h2> Preparing Sample Data</h2>
+				
+					<figure>
+						<img src="./Images/Testsplit.PNG" style=" background: none; border: none; box-shadow: none; width:50% "></figure>
+						<aside class="notes">
+							<script>
+								document.write(String(text.f6_5));
+							</script>	
+						</aside>
+
+			</section>
+
+			<!--Preparing DL model and model run-->
+			<section id="Chapter 6.6">
+				<h2> Preparing Deep Learning model </h2>
+				<div class="fragment fade-out" id="f6_6_f_1">
+										<figure>
+						<img src="./Images/PrepareModel.PNG" style=" background: none; border: none; box-shadow: none; width: 90%;  ">
+					</figure>
+				</div>
+				<div class="fragment fade-in" id="f6_6_f_2">
+					<figure>
+						<img src="./Images/PrepareModel_2.png" style=" background: none; border: none; box-shadow: none;  position:absolute; top:25%; left:5%; width: 80%;">
+					</figure>
+				</div>
+				<aside class="notes">
+					<script>
+						document.write(String(text.f6_6, text.f6_6_f_1, text.f6_6_f_2));
+					</script>	
+				</aside>
+
+			</section>
+
+			<!--Model Evaluation-->
+			<section id="Chapter 6.7">
+				<h2> Model Evaluation</h2>
+				<ol>
+				<li style="font-size: 60%"> Import the image and label raster of the evaluation dataset in the same way as the sample data</li>
+				<li style="font-size: 60%"> Load the model</li>
+				<li style="font-size: 60%"> Then evaluate the model as followed</li>
+			</ol>
+				<figure>
+					<img src="./Images/ModelEvaluation.PNG" style=" background: none; border: none; box-shadow: none;">
+				</figure>
+				
+				<aside class="notes">
+					<script>
+						document.write(String(text.f6_7));
+					</script>	
+				</aside>
+			</section>
+			<!--Further use-1-->
+			<section id="Chapter 6.8">
+				<h2>Further Use</h2>
+				
+					<p style="font-size: 60%; text-align: left;"> Reconstruct out of the predicted image patches a whole image again</p>
+					<figure style="width: 70%;">
+						<img src="./Images/FurtherUse_1.PNG" style=" background: none; border: none; box-shadow: none;">
+						
+					</figure>
+
+					<aside class="notes">
+						<script>
+							document.write(String(text.f6_8));
+						</script>	
+					</aside>
+
+
+			</section>
+			<!--Further use-2-->
+			<section id="Chapter 6.9">
+				<h2>Further Use</h2>			
+					<ul>
+						<li style="font-size: 50%; text-align: left"> Save the created prediction map as .tif:</li>
+						<figure style="width: 70%;">
+							<img src="./Images/FurtherUse_3.PNG" style=" background: none; border: none; box-shadow: none; width:50%; ;">
+						</figure>		
+					<div class="fragment" id="">	
+						<li style="font-size: 50%; text-align: left; "> The quality of the prediction map can be further analysed in a GIS program or in python</li>
+					</div>
+					<div class="fragment" id="">	
+						<li style="font-size: 50%; text-align: left"> In case the model performance is not satisfying, several steps can be taken:</li>
+						<ul style="font-size: 50%; ">
+							<li> More training samples </li>
+							<li> Adapting model parameters</li>
+							<li> Adapting the model architecture</li>
+						</ul>
+					</div>
+					<div class="fragment" id="">
+						<li style="font-size: 50%; text-align: left"> For analysing change of land cover, the presented model can be extended to classify the land cover in satellite images from dates before and after.</li>
+					</div>
+					</ul>	
+					<aside class="notes">
+						<script>
+							document.write(String(text.f6_9));
+						</script>	
+					</aside>
+		
+
+			</section>
+
+		<!--Code gesamt Jupyter-NB-->
+			<section id="Chapter 6.10">
+				<h2>Code</h2>
+				<ul style="text-align: left; font-size:70%">
+					<li>The TensorFlow script of this application example can be accessed on <a href=" https://github.com/eo4geocourses/PLUS_DeepLearning/blob/main/EO_Lab_DeepLearning.html"> Github</a>.</li>
+				</ul>
+			</section>
+
+		<!--Section End: Quiz-->	
+			<section id= "Chapter 6.11" data-background-image="./Images/Satellitenaufnahme_total.jpg" data-background-opacity=1 data-background-size="100" data-background-repeat="no-repeat" >
+				<p style="position: absolute; bottom:-100%; font-size:40%; color:white"> Sentinel-2,  Salzburg, Austria, on 18 May 2022 </p>
+		
+					<h2 style="background-color: white; margin: 5%; "> Go to Quiz #3</h2>
+			
+	
+				<aside class="notes">
+					<script>
+						document.write(String(text.f3_0));
+					</script>	
+				</aside>
+			</section>
+		</section>
+		<!-- Chapter 4: Summary-->
+	
+		<section id="Chapter 7.0" >
+				<section data-background-image="./Images/Satellitenaufnahme_total.jpg" data-background-opacity=1 data-background-size="100" data-background-repeat="no-repeat" >
+					
+						<h2 style="color:rgb(0, 119, 255); background-color: white; margin: 5%; ">Summary</h2>
+				
+					<aside class="notes">
+						<script>
+							document.write(String(text.f7_0));
+						</script>	
+					</aside>
+				</section>
+				
+			<!-- Summary-->
+			<section id="Chapter 7.1">
+				<h2>Summary</h2>
+				<ul style="font-size:60%">
+					<li>
+						In this course you learned:
+					</li>
+					<ul>
+						<div class="fragment" id="f7_1_f_1">
+							<li>
+								What <b>type of classifications</b> can be addressed with Deep Learning
+							</li>
+						</div>
+						<div class="fragment" id="f7_1_f_2">
+							<li>
+								What <b>kind of DL model </b>s are suitable for semantic segmentation
+							</li>
+						</div>
+						<div class="fragment" id="f7_1_f_3">
+							<li>
+								Which <b>steps on your Vitual Machine on EO-Lab are necessary to prepare EO data</b> for analysis with a DL model
+							</li>
+						</div>
+						<div class="fragment" id="f7_1_f_4">
+							<li>
+								Which <b>processing components</b> to include in a TensorFlow script for perfoming semantic segmentation with a U-Net model
+							</li>
+						</div>
+					</ul>
+				</ul>
+				<aside class="notes">
+					<script>
+						document.write(String(text.f7_1,text.f7_1_f_1, text.f7_1_f_2, text.f7_1_f_3, text.f7_1_f_4));
+					</script>	
+				</aside>
+			</section>	
+
+		</section>
+			
+
+			
+
+		</div>
+
+
+		<script src="./js/reveal.js"></script>
+		<script type='text/javascript' scr='./plugin/readfile.js'>
+		</script>
+
+		<script>
+			
+			Reveal.initialize({
+				//width: 1000,
+				//height:600,
+				//margin: 0.04,
+				//minScale: 0.2,
+				//maxScale: 2.0,
+				controls: true,
+				progress: true,
+				history: true,
+				center: true,
+				//embedded: false,
+				zoom:true,
+				//autoSlide:20000,
+				//loop:true,
+				transition:'slide',
+				slideNumber:true,
+				autoAnimateEasing: 'ease-out',
+  				autoAnimateDuration: 0.8,
+ 				autoAnimateUnmatched: false,
+				
+			
+				
+
+				// Optional libraries used to extend on reveal.js
+				dependencies: [
+					{ src: './plugin/markdown/marked.js', condition: function () { return !!document.querySelector('[data-markdown]'); } },
+					{ src: './plugin/markdown/markdown.js', condition: function () { return !!document.querySelector('[data-markdown]'); } },
+					{ src: './plugin/highlight/highlight.js', async: true, callback: function () { hljs.initHighlightingOnLoad(); } },
+					{ src: './plugin/notes/notes.js' }, { src: 'socket.io/socket.io.js', async: true },
+					{ src: './plugin/notes-server/client.js', async: true },
+					{ src: './plugin/readtext.js', async: true },
+					
+					
+				]
+			});
+			
+
+
+			// Reading Fragments and chaining voice for Quotation
+			Reveal.addEventListener('slidechanged', function (event){
+							read.delete();
+							var h=event.indexh;
+							var v=event.indexv;
+							console.log(h, v);
+							var ind=Reveal.getIndices();
+							var i =ind.f;
+							var t=Object.keys(text);
+							// insert pagenumbers with quotations (horizontal_vertical) or fragment id to change the voice accordingly
+							var quotes=['f7_4','f8_1_q','f8_1_q_1','f8_1_q_2','f10_7','f14_2','f15_5','f15_5_f_1','f15_5_f_2','f16_2','f21_2','f21_2_f','f34_8'];
+							
+						for (let i=0; i< t.length;i++){
+							t_slide='f'+h+'_'+v;
+							if (t[i]==t_slide){
+								for ( let q=0; q<quotes.length+1;q++){
+									if(quotes[q]==t_slide){
+										read.readfile(text[t[i]],'en-CA')
+									}
+									if(q==quotes.length){
+										read.readfile(text[t[i]],'en-IE')
+									}
+									else{
+										q=q;
+									}
+									
+							}
+
+							}
+							else{
+								console.log('text not found')
+							}
+							
+						}
+						
+						});
+				
+			Reveal.addEventListener('fragmentshown', function(event){
+				read.delete();
+							
+							var f= event.fragment.id;
+							console.log( f);
+							var t=Object.keys(text);
+							// insert pagenumbers with quotations (horizontal_vertical) or fragment id to change the voice accordingly
+							var quotes=['f7_4','f8_1_q','f8_1_q_1','f8_1_q_2','f10_7','f14_2','f15_5','f15_5_f_1','f15_5_f_2','f16_2','f21_2','f21_2_f','f34_8'];
+						for (let i=0; i< t.length;i++){
+							
+							if (t[i]==f){
+								for ( let q=0; q< quotes.length+1;q++){
+									if(quotes[q]==t_slide){
+										read.readfile(text[t[i]],'en-CA')
+									}
+									if(q==quotes.length){
+										read.readfile(text[t[i]],'en-IE')
+									}
+									else{
+										q=q;
+									}
+						}}
+						else{
+								console.log('text not found')
+							
+						}
+					}
+			});
+		
+			
+			
+			Reveal.configure({
+        keyboard: {
+          81: function() {play()}, // press q to cancel speaking and clear speech queue.
+          84: function() {pause()}  // press t to toggle speech on/off
+                           
+        }
+    })
+		;
+				
+        
+
+			
+		</script>
+
+		<!-- rauslöschen?? -->
+		<script>Reveal.initialize({
+				simplemenu: {
+					menuselector: '.menu a'
+				},
+				dependencies: [
+					{ src: './plugin/markdown/assets/js/revealjs/plugin/simplemenu/simplemenu.js', async: false }
+				]
+			});
+		</script>
+
+
+
+		<div class="progress" style="display: block;"><span style="width: 78.8387px;"></span></div>
+		<aside class="controls" data-controls-layout="bottom-right" data-controls-back-arrows="faded"
+			style="display: block;">
+			<button class="navigate-left" aria-label="previous slide" disabled="disabled">
+				<div class="controls-arrow"></div>
+			</button>
+			<button class="navigate-right enabled" aria-label="next slide">
+				<div class="controls-arrow"></div>
+			</button><button class="navigate-up" aria-label="above slide" disabled="disabled">
+				<div class="controls-arrow"></div>
+			</button><button class="navigate-down" aria-label="below slide" disabled="disabled">
+				<div class="controls-arrow"></div>
+			</button>
+		</aside>
+		<aside class="button" >
+			
+			</aside> 	
+		<div class="slide-number" style="display: none;"></div>
+		<div class="speaker-notes" data-prevent-swipe="" tabindex="0"></div>
+		<div class="pause-overlay"><button class="resume-button">Resume presentation</button></div>
+		<div id="aria-status-div" aria-live="polite" aria-atomic="true"
+			style="position: absolute; height: 1px; width: 1px; overflow: hidden; clip: rect(1px, 1px, 1px, 1px);">
+			Object-based Image Analysis (OBIA)
+			An introductory course
+			Stefan LANG & Dirk TIEDE
+
+			[1] Why spatial image analysis? | [2] Regions and image objects | [3] Image segmentation | [4] Knowledge
+			representation | [5] Class modelling
+			University of Salzburg, Department of Geoinformatics, 2010-2022
+
+
+		</div>
+		<div class="backgrounds">
+			<div class="slide-background present" data-loaded="true" style="display: block;">
+				<div class="slide-background-content"></div>
+			</div>
+			<div class="slide-background stack future" data-loaded="true" style="display: block;">
+				<div class="slide-background-content"></div>
+				<div class="slide-background present" data-loaded="true" style="display: block;">
+					<div class="slide-background-content"></div>
+				</div>
+				<div class="slide-background future" data-loaded="true" style="display: block;">
+					<div class="slide-background-content"></div>
+				</div>
+				<div class="slide-background future" style="display: none;" data-loaded="true">
+					<div class="slide-background-content"></div>
+				</div>
+				<div class="slide-background future" style="display: none;" data-loaded="true">
+					<div class="slide-background-content"></div>
+				</div>
+				<div class="slide-background future" style="display: none;" data-loaded="true">
+					<div class="slide-background-content"></div>
+				</div>
+				<div class="slide-background future" style="display: none;" data-loaded="true">
+					<div class="slide-background-content"></div>
+				</div>
+				<div class="slide-background future" style="display: none;" data-loaded="true">
+					<div class="slide-background-content"></div>
+				</div>
+				<div class="slide-background future" style="display: none;" data-loaded="true">
+					<div class="slide-background-content"></div>
+				</div>
+				<div class="slide-background future" style="display: none;" data-loaded="true">
+					<div class="slide-background-content"></div>
+				</div>
+				<div class="slide-background future" style="display: none;">
+					<div class="slide-background-content"></div>
+				</div>
+				<div class="slide-background future" style="display: none;">
+					<div class="slide-background-content"></div>
+				</div>
+			</div>
+			<div class="slide-background stack future" data-loaded="true" style="display: block;">
+				<div class="slide-background-content"></div>
+				<div class="slide-background present" data-loaded="true" style="display: block;">
+					<div class="slide-background-content"></div>
+				</div>
+				<div class="slide-background future" style="display: none;" data-loaded="true">
+					<div class="slide-background-content"></div>
+				</div>
+				<div class="slide-background future" style="display: none;" data-loaded="true">
+					<div class="slide-background-content"></div>
+				</div>
+				<div class="slide-background future" style="display: none;" data-loaded="true">
+					<div class="slide-background-content"></div>
+				</div>
+				<div class="slide-background future" style="display: none;" data-loaded="true">
+					<div class="slide-background-content"></div>
+				</div>
+				<div class="slide-background future" style="display: none;" data-loaded="true">
+					<div class="slide-background-content"></div>
+				</div>
+				<div class="slide-background future" style="display: none;" data-loaded="true">
+					<div class="slide-background-content"></div>
+				</div>
+				<div class="slide-background future" style="display: none;" data-loaded="true">
+					<div class="slide-background-content"></div>
+				</div>
+			</div>
+			<div class="slide-background stack future" style="display: none;" data-loaded="true">
+				<div class="slide-background-content"></div>
+				<div class="slide-background present" style="display: none;" data-loaded="true">
+					<div class="slide-background-content"></div>
+				</div>
+				<div class="slide-background future" style="display: none;" data-loaded="true">
+					<div class="slide-background-content"></div>
+				</div>
+				<div class="slide-background future" style="display: none;" data-loaded="true">
+					<div class="slide-background-content"></div>
+				</div>
+				<div class="slide-background future" style="display: none;" data-loaded="true">
+					<div class="slide-background-content"></div>
+				</div>
+				<div class="slide-background future" style="display: none;" data-loaded="true">
+					<div class="slide-background-content"></div>
+				</div>
+				<div class="slide-background future" style="display: none;" data-loaded="true">
+					<div class="slide-background-content"></div>
+				</div>
+				<div class="slide-background future" style="display: none;" data-loaded="true">
+					<div class="slide-background-content"></div>
+				</div>
+				<div class="slide-background future" style="display: none;">
+					<div class="slide-background-content"></div>
+				</div>
+				<div class="slide-background future" style="display: none;">
+					<div class="slide-background-content"></div>
+				</div>
+				<div class="slide-background future" style="display: none;">
+					<div class="slide-background-content"></div>
+				</div>
+				<div class="slide-background future" style="display: none;">
+					<div class="slide-background-content"></div>
+				</div>
+			</div>
+			<div class="slide-background stack future" style="display: none;" data-loaded="true">
+				<div class="slide-background-content"></div>
+				<div class="slide-background present" style="display: none;" data-loaded="true">
+					<div class="slide-background-content"></div>
+				</div>
+				<div class="slide-background future" style="display: none;" data-loaded="true">
+					<div class="slide-background-content"></div>
+				</div>
+				<div class="slide-background future" style="display: none;" data-loaded="true">
+					<div class="slide-background-content"></div>
+				</div>
+				<div class="slide-background future" style="display: none;" data-loaded="true">
+					<div class="slide-background-content"></div>
+				</div>
+				<div class="slide-background future" style="display: none;" data-loaded="true">
+					<div class="slide-background-content"></div>
+				</div>
+				<div class="slide-background future" style="display: none;" data-loaded="true">
+					<div class="slide-background-content"></div>
+				</div>
+				<div class="slide-background future" style="display: none;">
+					<div class="slide-background-content"></div>
+				</div>
+				<div class="slide-background future" style="display: none;">
+					<div class="slide-background-content"></div>
+				</div>
+				<div class="slide-background future" style="display: none;">
+					<div class="slide-background-content"></div>
+				</div>
+				<div class="slide-background future" style="display: none;">
+					<div class="slide-background-content"></div>
+				</div>
+				<div class="slide-background future" style="display: none;">
+					<div class="slide-background-content"></div>
+				</div>
+				<div class="slide-background future" style="display: none;">
+					<div class="slide-background-content"></div>
+				</div>
+				<div class="slide-background future" style="display: none;">
+					<div class="slide-background-content"></div>
+				</div>
+				<div class="slide-background future" style="display: none;">
+					<div class="slide-background-content"></div>
+				</div>
+				<div class="slide-background future" style="display: none;">
+					<div class="slide-background-content"></div>
+				</div>
+				<div class="slide-background future" style="display: none;">
+					<div class="slide-background-content"></div>
+				</div>
+				<div class="slide-background future" style="display: none;">
+					<div class="slide-background-content"></div>
+				</div>
+				<div class="slide-background future" style="display: none;">
+					<div class="slide-background-content"></div>
+				</div>
+			</div>
+			<div class="slide-background stack future" style="display: none;" data-loaded="true">
+				<div class="slide-background-content"></div>
+				<div class="slide-background present" style="display: none;" data-loaded="true">
+					<div class="slide-background-content"></div>
+				</div>
+				<div class="slide-background future" style="display: none;" data-loaded="true">
+					<div class="slide-background-content"></div>
+				</div>
+				<div class="slide-background future" style="display: none;" data-loaded="true">
+					<div class="slide-background-content"></div>
+				</div>
+				<div class="slide-background future" style="display: none;" data-loaded="true">
+					<div class="slide-background-content"></div>
+				</div>
+				<div class="slide-background future" style="display: none;" data-loaded="true">
+					<div class="slide-background-content"></div>
+				</div>
+				<div class="slide-background future" style="display: none;">
+					<div class="slide-background-content"></div>
+				</div>
+				<div class="slide-background future" style="display: none;">
+					<div class="slide-background-content"></div>
+				</div>
+				<div class="slide-background future" style="display: none;">
+					<div class="slide-background-content"></div>
+				</div>
+				<div class="slide-background future" style="display: none;">
+					<div class="slide-background-content"></div>
+				</div>
+				<div class="slide-background future" style="display: none;">
+					<div class="slide-background-content"></div>
+				</div>
+				<div class="slide-background future" style="display: none;">
+					<div class="slide-background-content"></div>
+				</div>
+				<div class="slide-background future" style="display: none;">
+					<div class="slide-background-content"></div>
+				</div>
+				<div class="slide-background future" style="display: none;">
+					<div class="slide-background-content"></div>
+				</div>
+			</div>
+			<div class="slide-background future" style="display: none;" data-loaded="true">
+				<div class="slide-background-content"></div>
+			</div>
+		</div>
+		<script>
+  				var btn= document.querySelectorAll(".button")[0];
+   				var click =0;
+   				btn.onclick=function(){
+				btn.classList.add('pause');
+				
+				if (click ==0){
+					read.pause();
+					click=1;
+					btn.classList.toggle("pause");
+				}
+				else{
+					read.resume();
+					click=0;
+					
+					
+				}
+				console.log(click);
+				
+				console.log(btn.className)
+				return;
+			}
+			btn.addEventListener('mouseover', event=>{
+				btn.style.borderColor='transparent transparent transparent #404040';
+			});
+			btn.addEventListener('mouseout', event=>{
+				btn.style.borderColor='transparent transparent transparent #202020';
+			})
+						
+		</script>
+	</div>
+	</div>
+</body>
+
+</html>
+
