@@ -3,7 +3,7 @@ This is the training material for the online course "Deep Learning for EO data p
 
 Course material authors: Florian Albrecht1, Vanessa Streifeneder2 and Stefan Lang2
 
-TensorFlow Script authors: Vanessa Streifeneder2, Getachew Workineh Gella2, Yunya Gao2
+Authors of the TensorFlow Script "EO_Lab_DeepLearning.ipynb": Vanessa Streifeneder2, Getachew Workineh Gella2, Yunya Gao2
 
 Speaker: Hannah Augustin2 
 
