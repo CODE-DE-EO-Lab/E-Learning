@@ -1,0 +1,68 @@
+/*.button {
+    border: 10;
+    background: transparent;
+    box-sizing: border-box;
+    width: 20%;
+    height: 20px;
+    bottom: 5px;
+    top: 80%;  
+    z-index: 31;
+    position: relative;
+    left:20px;
+    
+   
+  
+    border-color: transparent transparent transparent #202020;
+    transition: 100ms all ease;
+    cursor: pointer;
+    /*display: none;
+    position: absolute;
+    top: auto;
+    bottom: 12px;
+    left: 12px;
+  */
+  /*********************************************
+  play state
+   *********************************************/
+   /* border-style: solid;
+    border-width: 37px 0 37px 60px;
+}
+.pause {
+      width: 20%;
+      height: 74px;
+      bottom: 5px;
+      top: 80%;  
+      z-index: 31;
+      position: relative;
+      left:20px;
+      
+      border-color: #202020;
+      border-style: double;
+      border-width: 0px 0 0px 60px;
+
+      border-color: transparent transparent transparent #202020;
+      transition: 100ms all ease;
+      cursor: pointer;
+    }*/
+  .button{
+    border:10;
+    background-image:url('ContentButton.png');
+    background-repeat: 3px 5px no-repeat;
+    cursor:pointer;
+  
+    top:80%;
+    
+    right:-5%;
+    position:relative;
+    border-color: transparent transparent transparent #202020;
+    transition: 100ms all ease;
+  
+    }
+  
+.button :hover {
+      border-color: transparent transparent transparent #404040;
+    }
+
+
+  
+  
