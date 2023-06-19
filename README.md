@@ -7,6 +7,7 @@ The course material folders specifically contain
   * The index.html and associated files for the training material of the course "Deep Learning for EO data processing on the EO Cloud with TensorFlow"
   * The script "EO-Lab_Tensorflow_script_example.ipynb"
   * The script "EO-Lab_Pytorch_script_example.ipynb"
+  * Subfolder "Example_Data"
 
 To get the most out of the training material, it is recommended to access it via the courses on the E-Learning platform https://e-learning.eo-lab.org/. 
 
