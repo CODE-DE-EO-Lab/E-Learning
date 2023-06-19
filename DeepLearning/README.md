@@ -14,7 +14,7 @@ Affiliations:
 
 The material is published under the CC BY-SA 4.0 license (https://creativecommons.org/licenses/by-sa/4.0/legalcode). 
 
-To cite this material:
+How to cite:
 *	“[Deep Learning for EO data processing on the EO Cloud with TensorFlow](https://github.com/CODE-DE-EO-Lab/E-Learning/tree/main/DeepLearning)” by Florian Albrecht ([Spatial Services](https://www.spatial-services.com/)), Vanessa Streifeneder and Stefan Lang ([Z_GIS](https://www.plus.ac.at/geoinformatik/?lang=en)) for [EO-Lab](https://eo-lab.org/en/) is licensed under [CC BY-SA 4.0](https://creativecommons.org/licenses/by-sa/4.0/legalcode).
 *	“[EO-Lab_Tensorflow_script_example.ipynb](https://github.com/CODE-DE-EO-Lab/E-Learning/blob/main/DeepLearning/EO-Lab_Tensorflow_script_example.ipynb)” by Vanessa Streifeneder, Getachew Workineh Gella and Yunya Gao ([Z_GIS](https://www.plus.ac.at/geoinformatik/?lang=en)) for [EO-Lab](https://eo-lab.org/en/) is licensed under CC BY-SA 4.0.
 *	“[EO-Lab_Pytorch_script_example.ipynb](https://github.com/CODE-DE-EO-Lab/E-Learning/blob/main/DeepLearning/EO-Lab_Pytorch_script_example_script_example.ipynb)” by Getachew Workineh Gella ([Z_GIS](https://www.plus.ac.at/geoinformatik/?lang=en)) for [EO-Lab](https://eo-lab.org/en/)  is licensed under CC BY-SA 4.0.
