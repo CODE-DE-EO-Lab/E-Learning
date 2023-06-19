@@ -2,7 +2,7 @@
 
 The E-Learning section contains training material about how to use the Earth observation (EO) cloud resources provided by EO-Lab and CODE-DE. The material is intended for different skill levels in working with EO data, reaching from EO beginners over EO experts to developers that apply Artificial Intelligence for EO processing. 
 
-The folders specifically contain
+The course material folders specifically contain
 * Deep Learning
   * The index.html and associated files for the training material of the course "Deep Learning for EO data processing on the EO Cloud with TensorFlow"
   * The script "EO-Lab_Tensorflow_script_example.ipynb"
