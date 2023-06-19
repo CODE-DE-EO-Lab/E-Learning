@@ -9,8 +9,8 @@ Authors:
 Speaker: Hannah Augustin<sup>2</sup> 
 
 Affiliations:
-<sup>1</sup> Spatial Service GmbH, Salzburg, Austria,
-<sup>2</sup> University of Salzburg, Department of Geoinformatics - Z_GIS, Salzburg, Austria
+1 Spatial Service GmbH, Salzburg, Austria,
+2 University of Salzburg, Department of Geoinformatics - Z_GIS, Salzburg, Austria
 
 The material is published under the CC BY-SA 4.0 license (https://creativecommons.org/licenses/by-sa/4.0/legalcode). 
 
