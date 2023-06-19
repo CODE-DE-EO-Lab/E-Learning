@@ -4,6 +4,7 @@ This is the training material for the online course "Deep Learning for EO data p
 Course material authors: Florian Albrecht1, Vanessa Streifeneder2 and Stefan Lang2
 
 Authors of the TensorFlow Script "EO-Lab_Tensorflow_script_example.ipynb": Vanessa Streifeneder2, Getachew Workineh Gella2, Yunya Gao2
+Author of the Pytorch Script "EO-Lab_Pytorch_script_example.ipynb": Getachew Workineh Gella2
 
 Speaker: Hannah Augustin2 
 
@@ -12,3 +13,8 @@ Affiliations:
 2 University of Salzburg, Department of Geoinformatics - Z_GIS, Salzburg, Austria
 
 The material is published under the CC BY-SA 4.0 license (https://creativecommons.org/licenses/by-sa/4.0/legalcode). 
+
+To cite this material:
+*	“[Deep Learning for EO data processing on the EO Cloud with TensorFlow](https://github.com/CODE-DE-EO-Lab/E-Learning/tree/main/DeepLearning)” by Florian Albrecht ([Spatial Services](https://www.spatial-services.com/)), Vanessa Streifeneder and Stefan Lang ([Z_GIS](https://www.plus.ac.at/geoinformatik/?lang=en)) for [EO-Lab](https://eo-lab.org/en/) is licensed under [CC BY-SA 4.0](https://creativecommons.org/licenses/by-sa/4.0/legalcode).
+*	“[EO-Lab_Tensorflow_script_example.ipynb](https://github.com/CODE-DE-EO-Lab/E-Learning/blob/main/DeepLearning/EO-Lab_Tensorflow_script_example.ipynb)” by Vanessa Streifeneder, Getachew Workineh Gella and Yunya Gao ([Z_GIS](https://www.plus.ac.at/geoinformatik/?lang=en)) for [EO-Lab](https://eo-lab.org/en/) is licensed under CC BY-SA 4.0.
+*	“[EO-Lab_Pytorch_script_example.ipynb](https://github.com/CODE-DE-EO-Lab/E-Learning/blob/main/DeepLearning/EO-Lab_Pytorch_script_example_script_example.ipynb)” by Getachew Workineh Gella ([Z_GIS](https://www.plus.ac.at/geoinformatik/?lang=en)) for [EO-Lab](https://eo-lab.org/en/)  is licensed under CC BY-SA 4.0.
