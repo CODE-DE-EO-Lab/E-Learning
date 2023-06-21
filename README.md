@@ -11,4 +11,4 @@ The course material folders specifically contain
 
 To get the most out of the training material, it is recommended to access it via the courses on the E-Learning platform https://e-learning.eo-lab.org/. 
 
-The material is published under the CC BY-SA 4.0 license (https://creativecommons.org/licenses/by-sa/4.0/).
+The material is published under the CC BY-SA 4.0 license (https://creativecommons.org/licenses/by-sa/4.0/). Attribution information about how to cite the material is contained in the subfolders.
