@@ -4,7 +4,7 @@ This is the training material for the online course "Deep Learning for EO data p
 Authors:
 * Course material: Florian Albrecht<sup>1</sup>, Vanessa Streifeneder<sup>2</sup> and Stefan Lang<sup>2</sup>
 * TensorFlow Script "EO-Lab_Tensorflow_script_example.ipynb": Vanessa Streifeneder<sup>2</sup>, Getachew Workineh Gella<sup>2</sup>, Yunya Gao<sup>2</sup>
-* Pytorch Script "EO-Lab_Pytorch_script_example.ipynb": Getachew Workineh Gella<sup>2</sup>
+* PyTorch Script "EO-Lab_Pytorch_script_example.ipynb": Getachew Workineh Gella<sup>2</sup>
 
 Speaker: Hannah Augustin<sup>2</sup> 
 
