@@ -1,0 +1,77 @@
+body {
+	/*content: url(../../images/eo4geocourses_logo.png);
+	text-align: center;*/
+  background:  	#293133;
+  background-color:  	#293133; 
+  }
+  
+ 
+  
+  .eo4geologo
+{
+
+ content: url(../../images/eo4geocourses_logo.png);
+
+  background: #293133;
+  background-color: #293133; 
+  height: 100%;
+  width: 100%;
+  left: 0px;
+  	z-index: 3;
+ 
+ 
+ 
+	justify-content: left;
+
+}
+
+
+ .partnerlogo
+{
+
+ content: url(../../../../resources/unilogo_new.jpg);
+
+  background: #fff;
+  background-color: #fff; 
+  height: 100%;
+  width: 100%;
+  
+  	z-index: 3;
+  position: absolute;
+        top: 0%;
+        right: 0%;
+ 
+ 
+	justify-content: left;
+
+}
+.reveal h2 {
+  font-size: 1.6em;
+  color: #83d6f2;
+  font-family: "Roboto Slab", sans-serif;}
+
+.reveal h6 {
+ 
+  color: #c7bab9;
+}
+
+.reveal h3 {
+ 
+  color: #c7bab9;
+}
+
+
+.reveal {
+  font-family: "Open Sans";
+  font-size: 24px;
+  font-weight: normal;
+  color: #c7bab9; 
+  overflow: auto;
+  text-align: left;
+  }
+  
+  /*********************************************
+ * NAVIGATION CONTROLS
+ *********************************************/
+.reveal .controls {
+  color: #e4e8ed; }

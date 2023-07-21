@@ -1,0 +1,38 @@
+.bubble {
+    background-color: grey;
+    border-radius:10%; 
+    padding:1%; 
+    color: white;
+    font-size:30%;
+    width:15%;
+   margin-left: 4%;
+    float:left;
+   
+  
+    
+ 
+   
+}
+.bubble:after {
+    content: '';
+    position: absolute;
+    display: block;
+    z-index: 1;
+    border-style: solid;
+    border-color: #858383 transparent;
+    border-width: 0 22px 22px;
+    bottom: 54%;
+   
+   
+  
+  
+  
+ 
+  
+   
+  
+   
+  
+   
+}
+

@@ -1,0 +1,99 @@
+@import url('https://fonts.googleapis.com/css?family=Poppins:300,400,500,600,700&display=swap');
+body
+{
+    margin:0;
+    padding: 0;
+    display:flex;
+    justify-content:center;
+    align-items: center;
+    min-height: 100vh;
+    font-family:'Poppins', sans-serif;
+
+}
+.box
+{
+    position: relative;;
+}
+.box .content
+{
+    width: 200px;
+    height: 200px;
+    background: #000;
+    transform: scaleX(0);
+    transform-origin: left;
+    animation: reveal 1s ease-in-out forwards;
+
+}
+.box .content :before
+{
+    content:'';
+    position: absolute;
+    top:0;
+    left:0;
+    width: 100%;
+    height: 100%;
+    background: #000;
+    z-index: 1;
+    animation: reveal 1s reverse forwards;
+    animation-delay: 1s;
+    transform-origin: right;
+
+}
+.box .content img
+{
+    position: absolute;
+    top:0;
+    left:0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+
+
+
+}
+@keyframes reveal {
+    0%
+    {
+        transform:scaleX(0);
+
+        
+    }
+    100%
+    {
+        transform:scaleX(0);
+        
+        
+    }
+    
+}
+.box .content h2
+{
+    position: absolute;
+    right: -80px ;
+    bottom:40px;
+    margin:0;
+    padding:10;
+    background: #fff;
+    z-index:2;
+    box-shadow: 0 10px 15px rgba (0,0,0.20);
+    transform: scaleX(0);
+    transform-origin: left;
+    animation: reveal 1s ease-in-out forwards;
+    animation-delay: 1s;
+
+}
+.box .content h2:before
+{
+    content:'';
+    position: absolute;
+    top:0;
+    left:0;
+    width: 100%;
+    height: 100%;
+    background: #fff;
+    z-index: 1;
+    animation: reveal 1s reverse forwards;
+    animation-delay: 2s;
+    transform-origin: right;
+
+}
