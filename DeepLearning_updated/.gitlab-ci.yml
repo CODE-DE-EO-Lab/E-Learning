@@ -14,7 +14,8 @@ pages:
     - cp -r js .public
     - cp -r plugin .public
     - cp  background.jgp .public
-    - cp  EO_Lab_DeepLearning.ipynb .public
+    - cp  EO-lab_Pytorch_script_example.ipynb .public
+     - cp  EO-lab_Tensorflow_script_example.ipynb .public
     - cp  index.html .public
     - mv .public public
   artifacts:
