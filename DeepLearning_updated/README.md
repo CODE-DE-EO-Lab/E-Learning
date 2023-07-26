@@ -1,5 +1,7 @@
 # DeepLearning
-This is the training material for the online course "Deep Learning for EO data processing on the EO Cloud with TensorFlow". The course is intended for anyone who wants to start with creating deep learning (DL) scripts for processing Earth observation (EO) data on EO lab resources. For beginners in DL for EO, the course introduces the workflow and key concepts of DL. Further, it presents an example TensorFlow script for the first processing of EO data on EO-lab resources and for starting to experiment with the code. For experts in DL for EO, the course provides a best practice example as an impulse for their own projects.
+This is the training material for the online course "Deep Learning for EO data processing on the EO Cloud with TensorFlow and PyTorch". The course is intended for anyone who wants to start with creating deep learning (DL) scripts for processing Earth observation (EO) data on EO lab resources. For beginners in DL for EO, the course introduces the workflow and key concepts of DL. Further, it presents example TensorFlow and PyTorch scripts for the first processing of EO data on EO-lab resources and for starting to experiment with the code. For experts in DL for EO, the course provides a best practice example as an impulse for their own projects.
+
+This is an update for the Deep Learning course. Upon approval by the EO-Lab project office, the update will replace the previous version of the course. 
 
 Authors:
 * Course material: Florian Albrecht<sup>1</sup>, Vanessa Streifeneder<sup>2</sup> and Stefan Lang<sup>2</sup>
