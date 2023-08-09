@@ -8,6 +8,8 @@ The course material folders specifically contain
   * The script "EO-Lab_Tensorflow_script_example.ipynb"
   * The script "EO-Lab_Pytorch_script_example.ipynb"
   * Datasets used for script testing in the subfolder "Example_Data"
+* Deep Learning_update
+  * Update for the Deep Learning course, waiting for approval.
 
 To get the most out of the training material, it is recommended to access it via the courses on the E-Learning platform https://e-learning.eo-lab.org/. 
 
