@@ -32,8 +32,8 @@ jobs:
       - name: Build with Jekyll
         uses: actions/jekyll-build-pages@v1
         with:
-          source: ./DeepLearning_updated/
-          destination: ./_site/DeepLearning_updated
+          source: ./DeepLearning/
+          destination: ./_site/DeepLearning
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v1
 
